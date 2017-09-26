@@ -33,12 +33,12 @@ background::background(QGraphicsScene *s)
             {
                 case '0':
                 {
-                    floor_disp[i][j]->setPixmap(QPixmap(":/res/map/128.png").scaled(48,48));
+                    floor_disp[i][j]->setPixmap(QPixmap(":/res/map/wall1.png").scaled(48,48));
                     break;
                 }
                 case '1':
                 {
-                    floor_disp[i][j]->setPixmap(QPixmap(":/res/map/131.png").scaled(48,48));
+                    floor_disp[i][j]->setPixmap(QPixmap(":/res/map/path.png").scaled(48,48));
                     break;
                 }
             }

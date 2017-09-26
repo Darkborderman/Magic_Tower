@@ -52,13 +52,6 @@
         <file>res/item/91.png</file>
         <file>res/item/94.png</file>
         <file>res/item/97.png</file>
-        <file>res/map/128.png</file>
-        <file>res/map/131.png</file>
-        <file>res/map/461.png</file>
-        <file>res/map/58.png</file>
-        <file>res/map/60.png</file>
-        <file>res/map/62.png</file>
-        <file>res/map/64.png</file>
         <file>res/sound/0.wav</file>
         <file>res/sound/10_music_08.wav</file>
         <file>res/sound/11_music_07.wav</file>
@@ -175,5 +168,16 @@
         <file>res/unit/658.png</file>
         <file>res/unit/666.png</file>
         <file>res/unit/668.png</file>
+        <file>res/map/bright_1.png</file>
+        <file>res/map/bright_2.png</file>
+        <file>res/map/lava_1.png</file>
+        <file>res/map/lava_2.png</file>
+        <file>res/map/path.png</file>
+        <file>res/map/wall1.png</file>
+        <file>res/map/wall2.png</file>
+        <file>res/menu/inv.png</file>
+        <file>res/menu/label1.png</file>
+        <file>res/menu/label2.png</file>
+        <file>res/menu/stat.png</file>
     </qresource>
 </RCC>
