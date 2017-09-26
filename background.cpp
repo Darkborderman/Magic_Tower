@@ -2,34 +2,43 @@
 
 background::background(QGraphicsScene *s)
 {
-    char floor[10][10]=
-    {
-    {'0','0','0','0','0','0','0','0','0','0'},
-    {'0','0','0','0','0','0','0','0','0','0'},
-    {'0','0','0','0','0','0','0','0','0','0'},
-    {'0','0','0','0','0','0','0','0','0','0'},
-    {'0','0','0','0','0','0','0','0','0','0'},
-    {'0','0','1','0','0','0','0','0','0','0'},
-    {'0','0','1','0','0','0','0','0','0','0'},
-    {'0','1','1','0','0','0','0','0','0','0'},
-    {'1','1','0','0','0','0','0','0','0','0'},
-    {'1','0','0','0','0','0','0','0','0','0'}
-    };
+}
+void background::setbattle_disp(QGraphicsScene *s)
+{
 
-    //What a HUGE map
-    QGraphicsPixmapItem *floor_disp[10][10];
-    for(int i=0;i<=9;i++)
-    { for(int j=0;j<=9;j++)
-            floor_disp[i][j]=new QGraphicsPixmapItem;
-    }
+}
 
-    //
-    for(int i=0;i<=9;i++)
+void background::setstart(QGraphicsScene *s)
+{
+    QGraphicsTextItem *t=new QGraphicsTextItem;
+    t->setFont(QFont("Arial",20,10));
+    t->setHtml(QString("<div style='color:#666666'>")+QString::number(19)+QString("</div>"));
+    s->addItem(t);
+    t->setPos(0,0);
+
+
+}
+
+void background::setbattle(QGraphicsScene *s)
+{
+    QGraphicsPixmapItem *menu=new QGraphicsPixmapItem,*inv=new QGraphicsPixmapItem;
+    menu->setPixmap(QPixmap(":/res/menu/stat.png").scaled(132*1.5,177*1.5));
+    inv->setPixmap(QPixmap(":/res/menu/inv.png").scaled(132*1.5,191*1.5));
+    menu->setPos(0,-390);
+    inv->setPos(0,90);
+    s->addItem(menu);
+    s->addItem(inv);
+    for(int i=0;i<=15;i++){ for(int j=0;j<=15;j++)s->addItem(floor_disp[i][j]);}
+}
+void background::setlevel(QGraphicsScene *s,int level)
+{
+    int  a=level-1;
+    for(int i=0;i<=15;i++)
     {
-        for(int j=0;j<=9;j++)
+        for(int j=0;j<=15;j++)
         {
-            floor_disp[i][j]->setPos(48*j,48*i-50);
-            switch (floor[i][j])
+            floor_disp[i][j]->setPos(48*j+200,48*i-390);
+            switch (floor[a][i][j])
             {
                 case '0':
                 {
@@ -42,7 +51,10 @@ background::background(QGraphicsScene *s)
                     break;
                 }
             }
-            s->addItem(floor_disp[i][j]);
         }
     }
+}
+background::background()
+{
+    for(int i=0;i<=15;i++) { for(int j=0;j<=15;j++) floor_disp[i][j]=new QGraphicsPixmapItem;}
 }
