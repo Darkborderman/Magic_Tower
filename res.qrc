@@ -179,5 +179,6 @@
         <file>res/menu/label1.png</file>
         <file>res/menu/label2.png</file>
         <file>res/menu/stat.png</file>
+        <file>res/menu/background.png</file>
     </qresource>
 </RCC>

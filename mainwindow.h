@@ -22,7 +22,7 @@ public:
     ~MainWindow();
     virtual void keyPressEvent(QKeyEvent *e); // for debug
     background *bg=new background;
-    QGraphicsScene *s=new QGraphicsScene(0,0,1200,200);
+    QGraphicsScene *s[2];
 
 private:
     Ui::MainWindow *ui;
