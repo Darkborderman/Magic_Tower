@@ -4,6 +4,13 @@ void background::setbattle_disp(QGraphicsScene *s)
 
 }
 
+void background::updateframe()
+{
+    for(int i=0;i<=15;i++)
+        for(int j=0;j<=15;j++)
+    map_disp[i][j]->setPixmap(map[0][i][j]->pixmap().scaled(48,48));
+}
+
 void background::setstart(QGraphicsScene *s)
 {
     s->addItem(bg[0]);
@@ -51,17 +58,30 @@ void background::setfloor(int floor)
 }
 background::background()
 {
+    //init timer
     //init level display
+    t=new QTimer;
+    t->start(500);
     for(int i=0;i<=15;i++)
     {
         for(int j=0;j<=15;j++)
         {
             floor_disp[i][j]=new QGraphicsPixmapItem;
-            map_disp[i][j]=new QGraphicsPixmapItem;
+            map_disp[i][j]=new unit;
             floor_disp[i][j]->setPos(48*j+200,48*i-390);
             map_disp[i][j]->setPos(48*j+200,48*i-390);
         }
     }
+    connect(t,SIGNAL(timeout()),this,SLOT(updateframe()));
+    //core animation
+    for(int i=0;i<=15;i++)
+    {
+        for(int j=0;j<=15;j++)
+        {
+            connect(t,SIGNAL(timeout()),map[0][i][j],SLOT(loop()));
+        }
+    }
+
     for(int i=0;i<=1;i++)
     {
         bg[i]=new QGraphicsPixmapItem;

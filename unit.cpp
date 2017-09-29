@@ -13,3 +13,4 @@ unit::unit(char type, int kind, int hp, int atk, int def, int gold, int exp)
     this->gold=gold;
     this->exp=exp;
 }
+void unit::loop(){}

@@ -9,8 +9,15 @@
 #include"empty.h"
 #include"green_slime.h"
 #include"unit.h"
-class background
+#include<QObject>
+#include<QLabel>
+#include<QTimer>
+#include<iostream>
+using namespace std;
+
+class background: public QObject
 {
+    Q_OBJECT
 public:
     background();
     void setbattle_disp(QGraphicsScene *s);
@@ -19,7 +26,12 @@ public:
     void setfloor(int floor);
     void setstat(player *p);
 
-    QGraphicsPixmapItem *floor_disp[16][16],*map_disp[16][16];
+
+    int cur_level=0;
+    int prev_level=0;
+    QTimer *t;
+    QGraphicsPixmapItem *floor_disp[16][16];
+    unit *map_disp[16][16];
     QGraphicsPixmapItem *bg[2],*panel[3];
     QGraphicsTextItem *stat[10],*title,*subtitle[2];
 
@@ -140,6 +152,10 @@ public:
          {gs,gs,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,gs},
          {gs,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,gs}
     }};
+
+
+public slots:
+        void updateframe();
 };
 
 #endif // BACKGROUND_H

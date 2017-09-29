@@ -14,11 +14,6 @@ MainWindow::MainWindow(QWidget *parent) :
     bg->setfloor(1);
     bg->setstat(hero);
 }
-
-MainWindow::~MainWindow()
-{
-    delete ui;
-}
 //For debug
 void MainWindow::keyPressEvent(QKeyEvent *e)
 {
@@ -46,4 +41,8 @@ void MainWindow::mousePressEvent(QMouseEvent *e)
 {
     int x=e->x(),y=e->y();
     if((x>=300&&x<=640)&&(y>=380&&y<=430)&&(ui->graphicsView->scene()==s[1])) ui->graphicsView->setScene(s[0]);
+    if(e->button()==Qt::RightButton)  //for debug
+    {
+        cerr<<(y-22)/48<<"   "<<(x-200)/48<<endl;
+    }
 }
