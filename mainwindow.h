@@ -23,6 +23,7 @@ public:
     virtual void keyPressEvent(QKeyEvent *e); // for debug
     background *bg=new background;
     QGraphicsScene *s[2];
+    virtual void mousePressEvent(QMouseEvent *e);
 
 private:
     Ui::MainWindow *ui;

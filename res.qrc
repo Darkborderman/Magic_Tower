@@ -1,173 +1,13 @@
 <RCC>
     <qresource prefix="/">
-        <file>res/interact/110.png</file>
-        <file>res/interact/111.png</file>
-        <file>res/interact/112.png</file>
-        <file>res/interact/113.png</file>
-        <file>res/interact/114.png</file>
-        <file>res/interact/116.png</file>
-        <file>res/interact/117.png</file>
-        <file>res/interact/118.png</file>
-        <file>res/interact/120.png</file>
-        <file>res/interact/121.png</file>
-        <file>res/interact/122.png</file>
-        <file>res/interact/124.png</file>
-        <file>res/interact/125.png</file>
-        <file>res/interact/126.png</file>
-        <file>res/interact/52.png</file>
-        <file>res/interact/529.png</file>
-        <file>res/interact/531.png</file>
-        <file>res/interact/55.png</file>
-        <file>res/interact/79.png</file>
-        <file>res/interact/82.png</file>
-        <file>res/interact/85.png</file>
-        <file>res/item/100.png</file>
-        <file>res/item/103.png</file>
-        <file>res/item/106.png</file>
-        <file>res/item/22.png</file>
-        <file>res/item/25.png</file>
-        <file>res/item/279.png</file>
-        <file>res/item/28.png</file>
-        <file>res/item/282.png</file>
-        <file>res/item/285.png</file>
-        <file>res/item/288.png</file>
-        <file>res/item/291.png</file>
-        <file>res/item/294.png</file>
-        <file>res/item/297.png</file>
-        <file>res/item/300.png</file>
-        <file>res/item/303.png</file>
-        <file>res/item/305.png</file>
-        <file>res/item/308.png</file>
-        <file>res/item/31.png</file>
-        <file>res/item/34.png</file>
-        <file>res/item/37.png</file>
-        <file>res/item/40.png</file>
-        <file>res/item/43.png</file>
-        <file>res/item/46.png</file>
-        <file>res/item/49.png</file>
-        <file>res/item/66.png</file>
-        <file>res/item/70.png</file>
-        <file>res/item/74.png</file>
-        <file>res/item/88.png</file>
-        <file>res/item/91.png</file>
-        <file>res/item/94.png</file>
-        <file>res/item/97.png</file>
-        <file>res/sound/0.wav</file>
-        <file>res/sound/10_music_08.wav</file>
-        <file>res/sound/11_music_07.wav</file>
         <file>res/sound/12_music_06.wav</file>
-        <file>res/sound/13_music_05.wav</file>
-        <file>res/sound/14_music_04.wav</file>
-        <file>res/sound/15_music_03.wav</file>
         <file>res/sound/16_music_02.wav</file>
-        <file>res/sound/17_music_01.wav</file>
-        <file>res/sound/18_music_00.wav</file>
-        <file>res/sound/19_music_11.wav</file>
         <file>res/sound/1_music_25.wav</file>
-        <file>res/sound/20_music_09.wav</file>
-        <file>res/sound/21_music_10.wav</file>
-        <file>res/sound/2_music_24.wav</file>
-        <file>res/sound/3_music_23.wav</file>
-        <file>res/sound/4_music_22.wav</file>
         <file>res/sound/5_music_21.wav</file>
-        <file>res/sound/689.wav</file>
-        <file>res/sound/6_music_20.wav</file>
-        <file>res/sound/720.wav</file>
-        <file>res/sound/721.wav</file>
-        <file>res/sound/722.wav</file>
-        <file>res/sound/723.wav</file>
-        <file>res/sound/724.wav</file>
-        <file>res/sound/7_music_14.wav</file>
-        <file>res/sound/8_music_13.wav</file>
-        <file>res/sound/9_music_12.wav</file>
-        <file>res/unit/134.png</file>
-        <file>res/unit/136.png</file>
-        <file>res/unit/139.png</file>
-        <file>res/unit/141.png</file>
-        <file>res/unit/144.png</file>
-        <file>res/unit/146.png</file>
-        <file>res/unit/149.png</file>
-        <file>res/unit/151.png</file>
-        <file>res/unit/154.png</file>
-        <file>res/unit/156.png</file>
-        <file>res/unit/159.png</file>
-        <file>res/unit/161.png</file>
-        <file>res/unit/164.png</file>
-        <file>res/unit/166.png</file>
-        <file>res/unit/169.png</file>
-        <file>res/unit/171.png</file>
-        <file>res/unit/174.png</file>
-        <file>res/unit/176.png</file>
-        <file>res/unit/179.png</file>
-        <file>res/unit/181.png</file>
-        <file>res/unit/184.png</file>
-        <file>res/unit/186.png</file>
-        <file>res/unit/189.png</file>
-        <file>res/unit/191.png</file>
-        <file>res/unit/194.png</file>
-        <file>res/unit/196.png</file>
-        <file>res/unit/199.png</file>
-        <file>res/unit/201.png</file>
-        <file>res/unit/204.png</file>
-        <file>res/unit/206.png</file>
-        <file>res/unit/209.png</file>
-        <file>res/unit/211.png</file>
-        <file>res/unit/214.png</file>
-        <file>res/unit/216.png</file>
-        <file>res/unit/219.png</file>
-        <file>res/unit/221.png</file>
-        <file>res/unit/224.png</file>
-        <file>res/unit/226.png</file>
-        <file>res/unit/229.png</file>
-        <file>res/unit/231.png</file>
-        <file>res/unit/234.png</file>
-        <file>res/unit/236.png</file>
-        <file>res/unit/239.png</file>
-        <file>res/unit/241.png</file>
-        <file>res/unit/244.png</file>
-        <file>res/unit/246.png</file>
-        <file>res/unit/249.png</file>
-        <file>res/unit/251.png</file>
-        <file>res/unit/254.png</file>
-        <file>res/unit/256.png</file>
-        <file>res/unit/259.png</file>
-        <file>res/unit/261.png</file>
-        <file>res/unit/264.png</file>
-        <file>res/unit/266.png</file>
-        <file>res/unit/269.png</file>
-        <file>res/unit/271.png</file>
-        <file>res/unit/274.png</file>
-        <file>res/unit/276.png</file>
-        <file>res/unit/325.png</file>
-        <file>res/unit/379.png</file>
-        <file>res/unit/381.png</file>
-        <file>res/unit/388.png</file>
-        <file>res/unit/390.png</file>
         <file>res/unit/392.png</file>
-        <file>res/unit/395.png</file>
-        <file>res/unit/397.png</file>
-        <file>res/unit/399.png</file>
         <file>res/unit/401.png</file>
-        <file>res/unit/404.png</file>
-        <file>res/unit/406.png</file>
-        <file>res/unit/408.png</file>
         <file>res/unit/410.png</file>
-        <file>res/unit/413.png</file>
-        <file>res/unit/415.png</file>
-        <file>res/unit/417.png</file>
         <file>res/unit/419.png</file>
-        <file>res/unit/545.png</file>
-        <file>res/unit/547.png</file>
-        <file>res/unit/555.png</file>
-        <file>res/unit/557.png</file>
-        <file>res/unit/606.png</file>
-        <file>res/unit/608.png</file>
-        <file>res/unit/631.png</file>
-        <file>res/unit/633.png</file>
-        <file>res/unit/656.png</file>
-        <file>res/unit/658.png</file>
-        <file>res/unit/666.png</file>
-        <file>res/unit/668.png</file>
         <file>res/map/bright_1.png</file>
         <file>res/map/bright_2.png</file>
         <file>res/map/lava_1.png</file>
@@ -180,5 +20,169 @@
         <file>res/menu/label2.png</file>
         <file>res/menu/stat.png</file>
         <file>res/menu/background.png</file>
+        <file>res/interact/bar.png</file>
+        <file>res/interact/bluedoor.png</file>
+        <file>res/interact/bluedoor_1.png</file>
+        <file>res/interact/bluedoor_2.png</file>
+        <file>res/interact/downstair.png</file>
+        <file>res/interact/reddoor.png</file>
+        <file>res/interact/reddoor_1.png</file>
+        <file>res/interact/reddoor_2.png</file>
+        <file>res/interact/shop_left.png</file>
+        <file>res/interact/shop_mid_1.png</file>
+        <file>res/interact/shop_mid_2.png</file>
+        <file>res/interact/shop_right.png</file>
+        <file>res/interact/squaredoor.png</file>
+        <file>res/interact/squaredoor_1.png</file>
+        <file>res/interact/squaredoor_2.png</file>
+        <file>res/interact/squaredoor_3.png</file>
+        <file>res/interact/squaredoor_4.png</file>
+        <file>res/interact/upstair.png</file>
+        <file>res/interact/yellowdoor.png</file>
+        <file>res/interact/yellowdoor_1.png</file>
+        <file>res/interact/yellowdoor_2.png</file>
+        <file>res/item/blue gem.png</file>
+        <file>res/item/blue key.png</file>
+        <file>res/item/blue staff.png</file>
+        <file>res/item/blue wing.png</file>
+        <file>res/item/cross.png</file>
+        <file>res/item/godly key.png</file>
+        <file>res/item/godly potion.png</file>
+        <file>res/item/green staff.png</file>
+        <file>res/item/green wing.png</file>
+        <file>res/item/large potion.png</file>
+        <file>res/item/medal.png</file>
+        <file>res/item/pickaxe_1.png</file>
+        <file>res/item/pickaxe_2.png</file>
+        <file>res/item/red gem.png</file>
+        <file>res/item/red key.png</file>
+        <file>res/item/red staff.png</file>
+        <file>res/item/red wing.png</file>
+        <file>res/item/shield_1.png</file>
+        <file>res/item/shield_2.png</file>
+        <file>res/item/shield_3.png</file>
+        <file>res/item/shield_4.png</file>
+        <file>res/item/shield_5.png</file>
+        <file>res/item/small potion.png</file>
+        <file>res/item/snow.png</file>
+        <file>res/item/sword_1.png</file>
+        <file>res/item/sword_2.png</file>
+        <file>res/item/sword_3.png</file>
+        <file>res/item/sword_4.png</file>
+        <file>res/item/sword_5.png</file>
+        <file>res/item/teleport staff.png</file>
+        <file>res/item/yellow key.png</file>
+        <file>res/sound/bg_1.wav</file>
+        <file>res/sound/bg_2.wav</file>
+        <file>res/sound/bg_3.wav</file>
+        <file>res/sound/bg_4.wav</file>
+        <file>res/sound/bg_5.wav</file>
+        <file>res/sound/buy.wav</file>
+        <file>res/sound/cursor move_1.wav</file>
+        <file>res/sound/exp get.wav</file>
+        <file>res/sound/fight end.wav</file>
+        <file>res/sound/fight_1.wav</file>
+        <file>res/sound/fight_2.wav</file>
+        <file>res/sound/fight_3.wav</file>
+        <file>res/sound/fight_4.wav</file>
+        <file>res/sound/final.wav</file>
+        <file>res/sound/item get.wav</file>
+        <file>res/sound/magic_1.wav</file>
+        <file>res/sound/magic_2.wav</file>
+        <file>res/sound/spark_1.wav</file>
+        <file>res/sound/spark_2.wav</file>
+        <file>res/sound/talk.wav</file>
+        <file>res/sound/teleport.wav</file>
+        <file>res/sound/title.wav</file>
+        <file>res/sound/unable.wav</file>
+        <file>res/sound/walk.wav</file>
+        <file>res/unit/armor orc_1.png</file>
+        <file>res/unit/armor orc_2.png</file>
+        <file>res/unit/armor skeleton_1.png</file>
+        <file>res/unit/armor skeleton_2.png</file>
+        <file>res/unit/black slime_1.png</file>
+        <file>res/unit/black slime_2.png</file>
+        <file>res/unit/blue bat_1.png</file>
+        <file>res/unit/blue bat_2.png</file>
+        <file>res/unit/blue guard_1.png</file>
+        <file>res/unit/blue guard_2.png</file>
+        <file>res/unit/blue large bat_1.png</file>
+        <file>res/unit/blue large bat_2.png</file>
+        <file>res/unit/blue magician_1.png</file>
+        <file>res/unit/blue magician_2.png</file>
+        <file>res/unit/blue slime_1.png</file>
+        <file>res/unit/blue slime_2.png</file>
+        <file>res/unit/blue soldier_1.png</file>
+        <file>res/unit/blue soldier_2.png</file>
+        <file>res/unit/dark magician_1.png</file>
+        <file>res/unit/dark magician_2.png</file>
+        <file>res/unit/dark warrior_1.png</file>
+        <file>res/unit/dark warrior_2.png</file>
+        <file>res/unit/fairy_1.png</file>
+        <file>res/unit/fairy_2.png</file>
+        <file>res/unit/ghost skeleton_1.png</file>
+        <file>res/unit/ghost skeleton_2.png</file>
+        <file>res/unit/ghost warrior_1.png</file>
+        <file>res/unit/ghost warrior_2.png</file>
+        <file>res/unit/green slime_1.png</file>
+        <file>res/unit/green slime_2.png</file>
+        <file>res/unit/hero_back_1.png</file>
+        <file>res/unit/hero_back_2.png</file>
+        <file>res/unit/hero_back_3.png</file>
+        <file>res/unit/hero_front_1.png</file>
+        <file>res/unit/hero_front_2.png</file>
+        <file>res/unit/hero_front_3.png</file>
+        <file>res/unit/hero_left_1.png</file>
+        <file>res/unit/hero_left_2.png</file>
+        <file>res/unit/hero_left_3.png</file>
+        <file>res/unit/hero_right_1.png</file>
+        <file>res/unit/hero_right_2.png</file>
+        <file>res/unit/hero_right_3.png</file>
+        <file>res/unit/man_1.png</file>
+        <file>res/unit/man_2.png</file>
+        <file>res/unit/orc_1.png</file>
+        <file>res/unit/orc_2.png</file>
+        <file>res/unit/princess_1.png</file>
+        <file>res/unit/princess_2.png</file>
+        <file>res/unit/red bat_1.png</file>
+        <file>res/unit/red bat_2.png</file>
+        <file>res/unit/red guard_1.png</file>
+        <file>res/unit/red guard_2.png</file>
+        <file>res/unit/red knight_1.png</file>
+        <file>res/unit/red knight_2.png</file>
+        <file>res/unit/red large bat_1.png</file>
+        <file>res/unit/red large bat_2.png</file>
+        <file>res/unit/red magician_1.png</file>
+        <file>res/unit/red magician_2.png</file>
+        <file>res/unit/red slime_1.png</file>
+        <file>res/unit/red slime_2.png</file>
+        <file>res/unit/red soldier_1.png</file>
+        <file>res/unit/red soldier_2.png</file>
+        <file>res/unit/red witch_1.png</file>
+        <file>res/unit/red witch_2.png</file>
+        <file>res/unit/skeleton warrior_2.png</file>
+        <file>res/unit/skeleton warror_1.png</file>
+        <file>res/unit/skeleton_1.png</file>
+        <file>res/unit/skeleton_2.png</file>
+        <file>res/unit/slime king_1.png</file>
+        <file>res/unit/slime king_2.png</file>
+        <file>res/unit/slime man_1.png</file>
+        <file>res/unit/slime man_2.png</file>
+        <file>res/unit/stone_1.png</file>
+        <file>res/unit/stone_2.png</file>
+        <file>res/unit/swordman_1.png</file>
+        <file>res/unit/swordman_2.png</file>
+        <file>res/unit/thief_1.png</file>
+        <file>res/unit/thief_2.png</file>
+        <file>res/unit/vampire_1.png</file>
+        <file>res/unit/vampire_2.png</file>
+        <file>res/unit/woman_1.png</file>
+        <file>res/unit/woman_2.png</file>
+        <file>res/unit/yellow guard_1.png</file>
+        <file>res/unit/yellow guard_2.png</file>
+        <file>res/unit/yellow knight_1.png</file>
+        <file>res/unit/yellow knight_2.png</file>
+        <file>res/unit/yellow witch_1.png</file>
+        <file>res/unit/yellow witch_2.png</file>
     </qresource>
 </RCC>

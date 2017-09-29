@@ -12,7 +12,7 @@ public:
     void setbattle_disp(QGraphicsScene *s);
     void setstart(QGraphicsScene *s);
     void setbattle(QGraphicsScene *s);
-    void setlevel(QGraphicsScene *s, int level);
+    void setlevel(int level);
     void setstat(QGraphicsScene *s);
         QGraphicsPixmapItem *floor_disp[16][16];
         char floor[3][16][16]=
