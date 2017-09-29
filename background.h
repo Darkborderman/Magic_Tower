@@ -17,132 +17,129 @@ public:
     void setstart(QGraphicsScene *s);
     void setbattle(QGraphicsScene *s);
     void setfloor(int floor);
-    void setmap(QGraphicsScene *s, int floor);
     void setstat(player *p);
-        QGraphicsTextItem *stat[10];
 
-        QGraphicsPixmapItem *floor_disp[16][16];
-        QGraphicsPixmapItem *map_disp[16][16];
-        char level[3][16][16]=
-        {{
-            {'X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X'},
-            {'X','X','.','.','.','.','.','.','.','.','.','.','.','.','.','X'},
-            {'X','X','.','X','X','.','.','.','.','.','.','X','.','X','.','X'},
-            {'X','X','.','X','X','X','X','X','X','X','X','X','.','X','.','X'},
-            {'X','X','.','X','u','.','.','.','.','.','.','.','.','X','.','X'},
-            {'X','X','.','X','X','X','X','X','X','X','X','X','.','X','X','X'},
-            {'X','X','.','X','.','.','X','.','.','.','.','X','.','.','.','X'},
-            {'X','X','.','X','.','.','X','.','.','.','.','X','.','X','X','X'},
-            {'X','X','.','X','.','X','X','.','.','.','.','X','.','X','X','X'},
-            {'X','.','.','.','.','.','.','.','.','.','.','X','.','X','X','X'},
-            {'X','.','X','X','X','X','X','X','X','X','.','X','.','X','X','X'},
-            {'X','.','.','.','.','.','u','X','.','.','.','.','.','.','X','X'},
-            {'X','.','.','.','.','.','X','X','.','X','X','X','X','.','.','X'},
-            {'X','.','.','.','.','X','X','.','.','.','X','.','.','.','.','X'},
-            {'X','.','.','.','.','X','X','.','.','.','X','.','.','.','.','X'},
-            {'X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X'},
-        },
-        {
-            {'X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X'},
-            {'X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X'},
-            {'X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X'},
-            {'X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X'},
-            {'X','X','X','X','d','X','X','X','X','X','X','X','X','X','X','X'},
-            {'X','X','.','X','X','X','X','X','X','X','X','X','X','X','X','X'},
-            {'X','X','.','X','X','X','X','X','X','X','X','X','X','X','X','X'},
-            {'X','.','.','X','X','X','X','X','X','X','X','X','X','X','X','X'},
-            {'X','.','X','X','X','X','X','X','X','X','X','X','X','X','X','X'},
-            {'X','.','.','X','X','X','X','X','X','X','X','X','X','X','X','X'},
-            {'X','.','X','X','X','X','X','X','X','X','X','X','X','X','X','X'},
-            {'X','.','.','X','X','X','d','X','X','X','X','X','X','X','X','X'},
-            {'X','.','X','X','X','X','X','X','X','X','X','X','X','X','X','X'},
-            {'X','.','.','X','X','X','X','X','X','X','X','X','X','X','X','X'},
-            {'X','.','X','X','X','X','X','X','X','X','X','X','X','X','X','X'},
-            {'X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X'},
-        },
-        {
-             {'X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X'},
-             {'X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X'},
-             {'X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X'},
-             {'X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X'},
-             {'X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X'},
-             {'X','X','.','X','X','X','X','X','X','X','X','X','X','X','X','X'},
-             {'X','X','.','X','X','X','X','X','X','X','X','X','X','X','X','X'},
-             {'X','.','.','X','X','X','X','X','X','X','X','X','X','X','X','X'},
-             {'.','.','X','X','X','X','X','X','X','X','X','X','X','X','X','X'},
-             {'X','.','.','X','X','X','X','X','X','X','X','X','X','X','X','X'},
-             {'.','.','X','X','X','X','X','X','X','X','X','X','X','X','X','.'},
-             {'X','.','.','X','X','X','X','X','X','X','X','X','X','X','X','.'},
-             {'.','.','X','X','X','X','X','X','X','X','X','X','X','X','X','.'},
-             {'X','.','.','X','X','X','X','X','X','X','X','X','X','X','X','.'},
-             {'.','.','X','X','X','X','X','X','X','X','X','X','X','X','X','.'},
-             {'.','X','X','X','X','X','X','X','X','X','X','X','X','X','X','.'}
-        }};
+    QGraphicsPixmapItem *floor_disp[16][16],*map_disp[16][16];
+    QGraphicsPixmapItem *bg[2],*panel[3];
+    QGraphicsTextItem *stat[10],*title,*subtitle[2];
 
-        unit *map[3][16][16]=
-        {{
-            {new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty},
-            {new empty,new empty,new green_slime,new green_slime,new green_slime,new green_slime,new green_slime,new green_slime,new green_slime,new green_slime,new green_slime,new green_slime,new green_slime,new green_slime,new green_slime,new empty},
-            {new empty,new empty,new green_slime,new empty,new empty,new green_slime,new green_slime,new green_slime,new green_slime,new green_slime,new green_slime,new empty,new green_slime,new empty,new green_slime,new empty},
-            {new empty,new empty,new green_slime,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new green_slime,new empty,new green_slime,new empty},
-            {new empty,new empty,new green_slime,new empty,new empty,new green_slime,new green_slime,new green_slime,new green_slime,new green_slime,new green_slime,new green_slime,new green_slime,new empty,new green_slime,new empty},
-            {new empty,new empty,new green_slime,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new green_slime,new empty,new empty,new empty},
-            {new empty,new empty,new green_slime,new empty,new green_slime,new green_slime,new empty,new green_slime,new green_slime,new green_slime,new green_slime,new empty,new green_slime,new green_slime,new green_slime,new empty},
-            {new empty,new empty,new green_slime,new empty,new green_slime,new green_slime,new empty,new green_slime,new green_slime,new green_slime,new green_slime,new empty,new green_slime,new empty,new empty,new empty},
-            {new empty,new empty,new green_slime,new empty,new green_slime,new empty,new empty,new green_slime,new green_slime,new green_slime,new green_slime,new empty,new green_slime,new empty,new empty,new empty},
-            {new empty,new green_slime,new green_slime,new green_slime,new green_slime,new green_slime,new green_slime,new green_slime,new green_slime,new green_slime,new green_slime,new empty,new green_slime,new empty,new empty,new empty},
-            {new empty,new green_slime,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new green_slime,new empty,new green_slime,new empty,new empty,new empty},
-            {new empty,new green_slime,new green_slime,new green_slime,new green_slime,new green_slime,new empty,new empty,new green_slime,new green_slime,new green_slime,new green_slime,new green_slime,new green_slime,new empty,new empty},
-            {new empty,new green_slime,new green_slime,new green_slime,new green_slime,new green_slime,new empty,new empty,new green_slime,new empty,new empty,new empty,new empty,new green_slime,new green_slime,new empty},
-            {new empty,new green_slime,new green_slime,new green_slime,new green_slime,new empty,new empty,new green_slime,new green_slime,new green_slime,new empty,new green_slime,new green_slime,new green_slime,new green_slime,new empty},
-            {new empty,new green_slime,new green_slime,new green_slime,new green_slime,new empty,new empty,new green_slime,new green_slime,new green_slime,new empty,new green_slime,new green_slime,new green_slime,new green_slime,new empty},
-            {new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty},
-        },
-        {
-            {new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty},
-            {new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty},
-            {new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty},
-            {new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty},
-            {new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty},
-            {new empty,new empty,new green_slime,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty},
-            {new empty,new empty,new green_slime,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty},
-            {new empty,new green_slime,new green_slime,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty},
-            {new empty,new green_slime,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty},
-            {new empty,new green_slime,new green_slime,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty},
-            {new empty,new green_slime,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty},
-            {new empty,new green_slime,new green_slime,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty},
-            {new empty,new green_slime,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty},
-            {new empty,new green_slime,new green_slime,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty},
-            {new empty,new green_slime,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty},
-            {new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty},
-        },
-        {
-             {new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty},
-             {new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty},
-             {new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty},
-             {new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty},
-             {new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty},
-             {new empty,new empty,new green_slime,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty},
-             {new empty,new empty,new green_slime,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty},
-             {new empty,new green_slime,new green_slime,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty},
-             {new green_slime,new green_slime,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty},
-             {new empty,new green_slime,new green_slime,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty},
-             {new green_slime,new green_slime,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new green_slime},
-             {new empty,new green_slime,new green_slime,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new green_slime},
-             {new green_slime,new green_slime,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new green_slime},
-             {new empty,new green_slime,new green_slime,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new green_slime},
-             {new green_slime,new green_slime,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new green_slime},
-             {new green_slime,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new empty,new green_slime}
-        }};
-/*
- * can use creating field to avoid new that kind of stupid thing.
- * example
- *  empty *ep=new empty;
- * unit *x[2]={ep,ep};
- * green_slime *gs=new green slime;
- * x[0]=gs;
- * this kind of witchcraft works!
-*/
+    //Wall display
+    char level[3][16][16]=
+    {{
+        {'X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X'},
+        {'X','X','.','.','.','.','.','.','.','.','.','.','.','.','.','X'},
+        {'X','X','.','X','X','.','.','.','.','.','.','X','.','X','.','X'},
+        {'X','X','.','X','X','X','X','X','X','X','X','X','.','X','.','X'},
+        {'X','X','.','X','u','.','.','.','.','.','.','.','.','X','.','X'},
+        {'X','X','.','X','X','X','X','X','X','X','X','X','.','X','X','X'},
+        {'X','X','.','X','.','.','X','.','.','.','.','X','.','.','.','X'},
+        {'X','X','.','X','.','.','X','.','.','.','.','X','.','X','X','X'},
+        {'X','X','.','X','.','X','X','.','.','.','.','X','.','X','X','X'},
+        {'X','.','.','.','.','.','.','.','.','.','.','X','.','X','X','X'},
+        {'X','.','X','X','X','X','X','X','X','X','.','X','.','X','X','X'},
+        {'X','.','.','.','.','.','u','X','.','.','.','.','.','.','X','X'},
+        {'X','.','.','.','.','.','X','X','.','X','X','X','X','.','.','X'},
+        {'X','.','.','.','.','X','X','.','.','.','X','.','.','.','.','X'},
+        {'X','.','.','.','.','X','X','.','.','.','X','.','.','.','.','X'},
+        {'X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X'},
+    },
+    {
+        {'X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X'},
+        {'X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X'},
+        {'X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X'},
+        {'X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X'},
+        {'X','X','X','X','d','X','X','X','X','X','X','X','X','X','X','X'},
+        {'X','X','.','X','X','X','X','X','X','X','X','X','X','X','X','X'},
+        {'X','X','.','X','X','X','X','X','X','X','X','X','X','X','X','X'},
+        {'X','.','.','X','X','X','X','X','X','X','X','X','X','X','X','X'},
+        {'X','.','X','X','X','X','X','X','X','X','X','X','X','X','X','X'},
+        {'X','.','.','X','X','X','X','X','X','X','X','X','X','X','X','X'},
+        {'X','.','X','X','X','X','X','X','X','X','X','X','X','X','X','X'},
+        {'X','.','.','X','X','X','d','X','X','X','X','X','X','X','X','X'},
+        {'X','.','X','X','X','X','X','X','X','X','X','X','X','X','X','X'},
+        {'X','.','.','X','X','X','X','X','X','X','X','X','X','X','X','X'},
+        {'X','.','X','X','X','X','X','X','X','X','X','X','X','X','X','X'},
+        {'X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X'},
+    },
+    {
+        {'X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X'},
+        {'X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X'},
+        {'X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X'},
+        {'X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X'},
+        {'X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X'},
+        {'X','X','.','X','X','X','X','X','X','X','X','X','X','X','X','X'},
+        {'X','X','.','X','X','X','X','X','X','X','X','X','X','X','X','X'},
+        {'X','.','.','X','X','X','X','X','X','X','X','X','X','X','X','X'},
+        {'.','.','X','X','X','X','X','X','X','X','X','X','X','X','X','X'},
+        {'X','.','.','X','X','X','X','X','X','X','X','X','X','X','X','X'},
+        {'.','.','X','X','X','X','X','X','X','X','X','X','X','X','X','.'},
+        {'X','.','.','X','X','X','X','X','X','X','X','X','X','X','X','.'},
+        {'.','.','X','X','X','X','X','X','X','X','X','X','X','X','X','.'},
+        {'X','.','.','X','X','X','X','X','X','X','X','X','X','X','X','.'},
+        {'.','.','X','X','X','X','X','X','X','X','X','X','X','X','X','.'},
+        {'.','X','X','X','X','X','X','X','X','X','X','X','X','X','X','.'}
+    }};
+    //Monster List
+
+    empty *ep=new empty;
+    green_slime *gs=new green_slime;
+
+    //Monster Display
+    unit *map[3][16][16]=
+    {{
+        {ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep},
+        {ep,ep,gs,gs,gs,gs,gs,gs,gs,gs,gs,gs,gs,gs,gs,ep},
+        {ep,ep,gs,ep,ep,gs,gs,gs,gs,gs,gs,ep,gs,ep,gs,ep},
+        {ep,ep,gs,ep,ep,ep,ep,ep,ep,ep,ep,ep,gs,ep,gs,ep},
+        {ep,ep,gs,ep,ep,gs,gs,gs,gs,gs,gs,gs,gs,ep,gs,ep},
+        {ep,ep,gs,ep,ep,ep,ep,ep,ep,ep,ep,ep,gs,ep,ep,ep},
+        {ep,ep,gs,ep,gs,gs,ep,gs,gs,gs,gs,ep,gs,gs,gs,ep},
+        {ep,ep,gs,ep,gs,gs,ep,gs,gs,gs,gs,ep,gs,ep,ep,ep},
+        {ep,ep,gs,ep,gs,ep,ep,gs,gs,gs,gs,ep,gs,ep,ep,ep},
+        {ep,gs,gs,gs,gs,gs,gs,gs,gs,gs,gs,ep,gs,ep,ep,ep},
+        {ep,gs,ep,ep,ep,ep,ep,ep,ep,ep,gs,ep,gs,ep,ep,ep},
+        {ep,gs,gs,gs,gs,gs,ep,ep,gs,gs,gs,gs,gs,gs,ep,ep},
+        {ep,gs,gs,gs,gs,gs,ep,ep,gs,ep,ep,ep,ep,gs,gs,ep},
+        {ep,gs,gs,gs,gs,ep,ep,gs,gs,gs,ep,gs,gs,gs,gs,ep},
+        {ep,gs,gs,gs,gs,ep,ep,gs,gs,gs,ep,gs,gs,gs,gs,ep},
+        {ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep},
+    },
+    {
+        {ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep},
+        {ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep},
+        {ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep},
+        {ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep},
+        {ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep},
+        {ep,ep,gs,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep},
+        {ep,ep,gs,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep},
+        {ep,gs,gs,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep},
+        {ep,gs,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep},
+        {ep,gs,gs,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep},
+        {ep,gs,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep},
+        {ep,gs,gs,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep},
+        {ep,gs,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep},
+        {ep,gs,gs,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep},
+        {ep,gs,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep},
+        {ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep},
+    },
+    {
+         {ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep},
+         {ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep},
+         {ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep},
+         {ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep},
+         {ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep},
+         {ep,ep,gs,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep},
+         {ep,ep,gs,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep},
+         {ep,gs,gs,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep},
+         {gs,gs,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep},
+         {ep,gs,gs,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep},
+         {gs,gs,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,gs},
+         {ep,gs,gs,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,gs},
+         {gs,gs,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,gs},
+         {ep,gs,gs,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,gs},
+         {gs,gs,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,gs},
+         {gs,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,gs}
+    }};
 };
 
 #endif // BACKGROUND_H

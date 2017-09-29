@@ -184,5 +184,7 @@
         <file>res/unit/yellow witch_2.png</file>
         <file>res/map/downstair.png</file>
         <file>res/map/upstair.png</file>
+        <file>res/menu/slot.png</file>
+        <file>res/unit/empty.png</file>
     </qresource>
 </RCC>

@@ -21,7 +21,7 @@ private:
 /*
  *k = key d=door p=potion
  *m=monster g=gem
- * i=item? h=hero
+ * i=item h=hero
  * e=empty
  *
  *

@@ -29,14 +29,16 @@ SOURCES += main.cpp\
     unit.cpp \
     player.cpp \
     empty.cpp \
-    green_slime.cpp
+    green_slime.cpp \
+    blue_slime.cpp
 
 HEADERS  += mainwindow.h \
     background.h \
     unit.h \
     player.h \
     empty.h \
-    green_slime.h
+    green_slime.h \
+    blue_slime.h
 
 FORMS    += mainwindow.ui
 
