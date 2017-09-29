@@ -24,7 +24,6 @@
         <file>res/interact/bluedoor.png</file>
         <file>res/interact/bluedoor_1.png</file>
         <file>res/interact/bluedoor_2.png</file>
-        <file>res/interact/downstair.png</file>
         <file>res/interact/reddoor.png</file>
         <file>res/interact/reddoor_1.png</file>
         <file>res/interact/reddoor_2.png</file>
@@ -37,7 +36,6 @@
         <file>res/interact/squaredoor_2.png</file>
         <file>res/interact/squaredoor_3.png</file>
         <file>res/interact/squaredoor_4.png</file>
-        <file>res/interact/upstair.png</file>
         <file>res/interact/yellowdoor.png</file>
         <file>res/interact/yellowdoor_1.png</file>
         <file>res/interact/yellowdoor_2.png</file>
@@ -184,5 +182,7 @@
         <file>res/unit/yellow knight_2.png</file>
         <file>res/unit/yellow witch_1.png</file>
         <file>res/unit/yellow witch_2.png</file>
+        <file>res/map/downstair.png</file>
+        <file>res/map/upstair.png</file>
     </qresource>
 </RCC>

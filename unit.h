@@ -3,15 +3,28 @@
 
 #include<QGraphicsPixmapItem>
 
-class unit
+class unit : public QGraphicsPixmapItem
 {
 public:
     unit();
     char type;
-    int hp,atk,def,gold,exp,type;
-    unit(int hp,int atk,int def,int gold,int exp);
-    QGraphicsPixmapItem *icon;
+    int kind;
+    int hp,atk,def,gold,exp;
+    unit(char type, int kind,int hp,int atk,int def,int gold,int exp);
+private:
 
 };
 
 #endif // UNIT_H
+
+
+/*
+ *k = key d=door p=potion
+ *m=monster g=gem
+ * i=item? h=hero
+ * e=empty
+ *
+ *
+ *
+
+*/

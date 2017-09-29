@@ -26,11 +26,17 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += main.cpp\
         mainwindow.cpp \
     background.cpp \
-    unit.cpp
+    unit.cpp \
+    player.cpp \
+    empty.cpp \
+    green_slime.cpp
 
 HEADERS  += mainwindow.h \
     background.h \
-    unit.h
+    unit.h \
+    player.h \
+    empty.h \
+    green_slime.h
 
 FORMS    += mainwindow.ui
 

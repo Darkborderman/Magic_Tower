@@ -8,6 +8,8 @@
 #include<QKeyEvent>
 #include<QMouseEvent>
 #include<iostream>
+#include"unit.h"
+#include"player.h"
 using namespace std;
 namespace Ui {
 class MainWindow;
@@ -24,7 +26,7 @@ public:
     background *bg=new background;
     QGraphicsScene *s[2];
     virtual void mousePressEvent(QMouseEvent *e);
-
+    player *hero;
 private:
     Ui::MainWindow *ui;
 };

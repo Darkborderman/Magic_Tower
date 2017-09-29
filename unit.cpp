@@ -3,11 +3,13 @@
 unit::unit()
 {
 }
-unit::unit(int hp,int atk,int def,int gold,int exp)
+unit::unit(char type, int kind, int hp, int atk, int def, int gold, int exp)
 {
+    this->type=type;
+    this->kind=kind;
     this->hp=hp;
     this->atk=atk;
     this->def=def;
     this->gold=gold;
-    this->exp=exp
+    this->exp=exp;
 }
