@@ -19,11 +19,15 @@ class MainWindow : public QMainWindow
     Q_OBJECT
 public:
     explicit MainWindow(QWidget *parent = 0);
+    virtual void mousePressEvent(QMouseEvent *e);
     virtual void keyPressEvent(QKeyEvent *e); // for debug
     background *bg=new background;
     QGraphicsScene *s[2];
-    virtual void mousePressEvent(QMouseEvent *e);
-    player *hero;
+    player *hero=new player;
+    int cur_level=0;
+    int prev_level=0;
+    int detectwall(int x,int y);
+    void detectmap(int x, int y);
 private:
     Ui::MainWindow *ui;
 };

@@ -186,5 +186,6 @@
         <file>res/map/upstair.png</file>
         <file>res/menu/slot.png</file>
         <file>res/unit/empty.png</file>
+        <file>res/menu/statusbar.png</file>
     </qresource>
 </RCC>

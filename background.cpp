@@ -1,14 +1,10 @@
 #include "background.h"
 void background::setbattle_disp(QGraphicsScene *s)
 {
-
 }
-
 void background::updateframe()
 {
-    for(int i=0;i<=15;i++)
-        for(int j=0;j<=15;j++)
-    map_disp[i][j]->setPixmap(map[0][i][j]->pixmap().scaled(48,48));
+    for(int i=0;i<=15;i++)for(int j=0;j<=15;j++) map_disp[i][j]->setPixmap(map[0][i][j]->pixmap().scaled(48,48));
 }
 
 void background::setstart(QGraphicsScene *s)
@@ -32,10 +28,15 @@ void background::setstat(player *p)
     stat[7]->setHtml(QString("<div style='color:#DDDDDD'>")+QString::number(p->bluekey)+QString("</div>"));
     stat[8]->setHtml(QString("<div style='color:#DDDDDD'>")+QString::number(p->redkey)+QString("</div>"));
 }
+void background::setmessage(unit *u)
+{
+    //write some get item message or monster defected message
+}
+
 void background::setbattle(QGraphicsScene *s)
 {
     s->addItem(bg[1]);
-    for(int i=0;i<=2;i++) s->addItem(panel[i]);
+    for(int i=0;i<=3;i++) s->addItem(panel[i]);
     for(int i=0;i<=9;i++) s->addItem(stat[i]);
     for(int i=0;i<=15;i++){ for(int j=0;j<=15;j++)s->addItem(floor_disp[i][j]);}
     for(int i=0;i<=15;i++){ for(int j=0;j<=15;j++)s->addItem(map_disp[i][j]);}
@@ -43,6 +44,7 @@ void background::setbattle(QGraphicsScene *s)
 void background::setfloor(int floor)
 {
     floor--;
+    cur_level=floor;
     for(int i=0;i<=15;i++)
     {
         for(int j=0;j<=15;j++)
@@ -56,12 +58,25 @@ void background::setfloor(int floor)
     }
     stat[9]->setHtml(QString("<div style='color:#DDDDDD'>")+QString::number(floor+1)+QString("</div>"));
 }
+void background::connection()
+{
+    for(int i=0;i<=15;i++)
+    {
+        for(int j=0;j<=15;j++)
+        {
+            disconnect(t,SIGNAL(timeout()),map[prev_level][i][j],SLOT(loop()));
+            connect(t,SIGNAL(timeout()),map[cur_level][i][j],SLOT(loop()));
+        }
+    }
+}
+
 background::background()
 {
     //init timer
-    //init level display
     t=new QTimer;
-    t->start(500);
+    t->start(100);
+    //init level display
+
     for(int i=0;i<=15;i++)
     {
         for(int j=0;j<=15;j++)
@@ -72,15 +87,10 @@ background::background()
             map_disp[i][j]->setPos(48*j+200,48*i-390);
         }
     }
+
+    //connect update frame
     connect(t,SIGNAL(timeout()),this,SLOT(updateframe()));
-    //core animation
-    for(int i=0;i<=15;i++)
-    {
-        for(int j=0;j<=15;j++)
-        {
-            connect(t,SIGNAL(timeout()),map[0][i][j],SLOT(loop()));
-        }
-    }
+    connection();
 
     for(int i=0;i<=1;i++)
     {
@@ -100,7 +110,7 @@ background::background()
     subtitle[0]->setPos(290,-50);
     subtitle[1]->setPos(380,70);
     //init panel display
-    for(int i=0;i<=2;i++) panel[i]=new QGraphicsPixmapItem;
+    for(int i=0;i<=3;i++) panel[i]=new QGraphicsPixmapItem;
     for(int i=0;i<=9;i++)
     {
         stat[i]=new QGraphicsTextItem;
@@ -117,18 +127,20 @@ background::background()
         else if(i==9)
         {
              stat[i]->setFont(QFont("Arial",18,10));
-             stat[i]->setPos(80,-110+40*i+9);
+             stat[i]->setPos(80,-110+40*i+9+60);
         }
         else
         {
             stat[i]->setFont(QFont("Arial",25,10));
-            stat[i]->setPos(80,-200+50*i+5);
+            stat[i]->setPos(80,-200+50*i+5+60);
         }
     }
     panel[0]->setPixmap(QPixmap(":/res/menu/stat.png").scaled(132*1.5,177*1.5));
-    panel[1]->setPixmap(QPixmap(":/res/menu/slot.png").scaled(132*1.5,177*1.5-39));
+    panel[1]->setPixmap(QPixmap(":/res/menu/slot.png").scaled(132*1.5,177*1.5-39+60));
     panel[2]->setPixmap(QPixmap(":/res/menu/inv.png").scaled(132*1.5,191*1.5));
+    panel[3]->setPixmap(QPixmap(":/res/menu/statusbar.png").scaled(772,60));
     panel[0]->setPos(0,-390);
     panel[1]->setPos(0,-130);
-    panel[2]->setPos(0,93);
+    panel[2]->setPos(0,93+60);
+    panel[3]->setPos(132*1.5,378);
 }

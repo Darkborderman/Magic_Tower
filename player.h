@@ -7,9 +7,9 @@ class player: public unit
 public:
     player();
     int x,y;
-    int direction;
     int level;
     int redkey,bluekey,yellowkey;
+    void loop();
 };
 
 #endif // PLAYER_H

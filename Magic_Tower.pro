@@ -30,7 +30,8 @@ SOURCES += main.cpp\
     player.cpp \
     empty.cpp \
     green_slime.cpp \
-    blue_slime.cpp
+    blue_slime.cpp \
+    large_potion.cpp
 
 HEADERS  += mainwindow.h \
     background.h \
@@ -38,7 +39,8 @@ HEADERS  += mainwindow.h \
     player.h \
     empty.h \
     green_slime.h \
-    blue_slime.h
+    blue_slime.h \
+    large_potion.h
 
 FORMS    += mainwindow.ui
 

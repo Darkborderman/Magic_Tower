@@ -9,8 +9,8 @@
 #include"empty.h"
 #include"green_slime.h"
 #include"unit.h"
+#include"large_potion.h"
 #include<QObject>
-#include<QLabel>
 #include<QTimer>
 #include<iostream>
 using namespace std;
@@ -25,14 +25,15 @@ public:
     void setbattle(QGraphicsScene *s);
     void setfloor(int floor);
     void setstat(player *p);
-
+    void connection();
+    void setmessage(unit *u);
 
     int cur_level=0;
     int prev_level=0;
     QTimer *t;
     QGraphicsPixmapItem *floor_disp[16][16];
     unit *map_disp[16][16];
-    QGraphicsPixmapItem *bg[2],*panel[3];
+    QGraphicsPixmapItem *bg[2],*panel[4];
     QGraphicsTextItem *stat[10],*title,*subtitle[2];
 
     //Wall display
@@ -92,9 +93,10 @@ public:
         {'.','X','X','X','X','X','X','X','X','X','X','X','X','X','X','.'}
     }};
     //Monster List
-
+    player *he=new player;
     empty *ep=new empty;
     green_slime *gs=new green_slime;
+    large_potion *lp=new large_potion;
 
     //Monster Display
     unit *map[3][16][16]=
@@ -103,17 +105,17 @@ public:
         {ep,ep,gs,gs,gs,gs,gs,gs,gs,gs,gs,gs,gs,gs,gs,ep},
         {ep,ep,gs,ep,ep,gs,gs,gs,gs,gs,gs,ep,gs,ep,gs,ep},
         {ep,ep,gs,ep,ep,ep,ep,ep,ep,ep,ep,ep,gs,ep,gs,ep},
-        {ep,ep,gs,ep,ep,gs,gs,gs,gs,gs,gs,gs,gs,ep,gs,ep},
-        {ep,ep,gs,ep,ep,ep,ep,ep,ep,ep,ep,ep,gs,ep,ep,ep},
-        {ep,ep,gs,ep,gs,gs,ep,gs,gs,gs,gs,ep,gs,gs,gs,ep},
-        {ep,ep,gs,ep,gs,gs,ep,gs,gs,gs,gs,ep,gs,ep,ep,ep},
-        {ep,ep,gs,ep,gs,ep,ep,gs,gs,gs,gs,ep,gs,ep,ep,ep},
-        {ep,gs,gs,gs,gs,gs,gs,gs,gs,gs,gs,ep,gs,ep,ep,ep},
-        {ep,gs,ep,ep,ep,ep,ep,ep,ep,ep,gs,ep,gs,ep,ep,ep},
-        {ep,gs,gs,gs,gs,gs,ep,ep,gs,gs,gs,gs,gs,gs,ep,ep},
-        {ep,gs,gs,gs,gs,gs,ep,ep,gs,ep,ep,ep,ep,gs,gs,ep},
-        {ep,gs,gs,gs,gs,ep,ep,gs,gs,gs,ep,gs,gs,gs,gs,ep},
-        {ep,gs,gs,gs,gs,ep,ep,gs,gs,gs,ep,gs,gs,gs,gs,ep},
+        {ep,ep,gs,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,gs,ep},
+        {ep,ep,gs,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep},
+        {ep,ep,gs,ep,gs,gs,ep,gs,gs,gs,gs,ep,ep,gs,gs,ep},
+        {ep,ep,gs,ep,gs,gs,ep,gs,gs,gs,gs,ep,ep,ep,ep,ep},
+        {ep,ep,gs,ep,gs,ep,ep,gs,gs,gs,gs,ep,ep,ep,ep,ep},
+        {ep,gs,gs,gs,gs,gs,gs,gs,gs,gs,gs,ep,ep,ep,ep,ep},
+        {ep,gs,ep,ep,ep,ep,ep,ep,ep,ep,gs,ep,ep,ep,ep,ep},
+        {ep,gs,gs,gs,gs,gs,ep,ep,ep,ep,ep,ep,ep,gs,ep,ep},
+        {ep,gs,gs,gs,gs,gs,ep,ep,ep,ep,ep,ep,ep,gs,gs,ep},
+        {ep,gs,gs,gs,gs,ep,ep,gs,ep,gs,ep,gs,gs,gs,gs,ep},
+        {ep,gs,gs,gs,gs,ep,ep,ep,ep,lp,ep,gs,gs,gs,gs,ep},
         {ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep},
     },
     {
