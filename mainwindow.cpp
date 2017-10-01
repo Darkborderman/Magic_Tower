@@ -3,11 +3,12 @@
 
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWindow)
 {
-    for(int i=0;i<=1;i++)s[i]=new QGraphicsScene(0,0,1200,200);
+    for(int i=0;i<=2;i++)s[i]=new QGraphicsScene(0,0,1200,200);
     ui->setupUi(this);
     ui->graphicsView->setScene(s[1]);
     bg->setbattle(s[0]);
     bg->setstart(s[1]);
+    bg->setdeath(s[2]);
     bg->setfloor(cur_level);
     bg->setstat(hero);
     hero->x=14;
@@ -123,9 +124,31 @@ void MainWindow::detectmap(int x, int y)
     }
     if(bg->map[cur_level][x][y]->type=='m')
     {
+        battle(hero,bg->map[cur_level][x][y]);
         bg->setmessage(bg->map[cur_level][x][y]);
         bg->setbattle_msg(hero,bg->map[cur_level][x][y]);
         hero->gold+=bg->map[cur_level][x][y]->gold;
         hero->exp+=bg->map[cur_level][x][y]->exp;
     }
+}
+void MainWindow::battle(player *attacker, unit *attacked)
+{
+    unit temp;
+    temp.hp=attacked->hp;
+    while(attacker->hp>0)
+    {
+        attacked->hp-=(attacker->atk-attacked->def);
+        if (attacked->hp<=0)
+        {
+            attacked->hp=temp.hp;
+            break;
+        }
+        attacker->hp-=(attacked->atk-attacker->def);
+        bg->setstat(attacker);
+    }
+    if(attacker->hp<=0)
+    {
+        ui->graphicsView->setScene(s[2]);
+    }
+    return ;
 }

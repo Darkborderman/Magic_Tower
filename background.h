@@ -30,14 +30,15 @@ public:
     void setstat(player *p);
     void connection();
     void setmessage(unit *u);
+    void setdeath(QGraphicsScene *s);
 
     int cur_level=0;
     int prev_level=0;
     QTimer *t;
     QGraphicsPixmapItem *floor_disp[16][16];
     unit *map_disp[16][16];
-    QGraphicsPixmapItem *base[2],*panel[4];
-    QGraphicsTextItem *stat[11],*title,*subtitle[2];
+    QGraphicsPixmapItem *base[3],*panel[4];
+    QGraphicsTextItem *stat[11],*title,*subtitle[2],*death;
 
     //Wall display
     char level[3][16][16]=

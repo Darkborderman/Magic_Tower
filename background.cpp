@@ -110,7 +110,7 @@ background::background()
     connect(t,SIGNAL(timeout()),this,SLOT(updateframe()));
     connection();
 
-    for(int i=0;i<=1;i++)
+    for(int i=0;i<=2;i++)
     {
         base[i]=new QGraphicsPixmapItem;
         base[i]->setPixmap(QPixmap(":/res/menu/background.png").scaled(1200,1000));
@@ -127,6 +127,10 @@ background::background()
     }
     subtitle[0]->setPos(290,-50);
     subtitle[1]->setPos(380,70);
+    //init death screen
+    death=new QGraphicsTextItem;
+    death->setFont(QFont("Arial",80,10));
+    death->setPos(220,-50);
     //init panel display
     for(int i=0;i<=3;i++) panel[i]=new QGraphicsPixmapItem;
     for(int i=0;i<=10;i++)
@@ -166,4 +170,10 @@ background::background()
     panel[1]->setPos(0,-130);
     panel[2]->setPos(0,93+60);
     panel[3]->setPos(132*1.5,378);
+}
+void background::setdeath(QGraphicsScene *s)
+{
+    s->addItem(base[2]);
+    s->addItem(death);
+    death->setHtml(QString("<div style='color:#DDDDDD'>You Died!</div>"));
 }
