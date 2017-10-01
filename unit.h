@@ -14,7 +14,7 @@ public:
     int kind;
     int hp,atk,def,gold,exp;
     unit(char type, int kind,int hp,int atk,int def,int gold,int exp);\
-    int tick=2;
+    int tick=0;
 public slots:
     virtual void loop();
 

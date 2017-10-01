@@ -1,15 +1,16 @@
 #include "background.h"
-void background::setbattle_disp(QGraphicsScene *s)
+void background::setbattle_msg(unit *hero,unit *attacked)
 {
+
 }
 void background::updateframe()
 {
-    for(int i=0;i<=15;i++)for(int j=0;j<=15;j++) map_disp[i][j]->setPixmap(map[0][i][j]->pixmap().scaled(48,48));
+    for(int i=0;i<=15;i++)for(int j=0;j<=15;j++) map_disp[i][j]->setPixmap(map[cur_level][i][j]->pixmap().scaled(48,48));
 }
 
 void background::setstart(QGraphicsScene *s)
 {
-    s->addItem(bg[0]);
+    s->addItem(base[0]);
     s->addItem(title);
     for(int i=0;i<=1;i++) s->addItem(subtitle[i]);
     title->setHtml(QString("<div style='color:#FFFFFF'>Magic Tower</div>"));
@@ -30,20 +31,30 @@ void background::setstat(player *p)
 }
 void background::setmessage(unit *u)
 {
-    //write some get item message or monster defected message
+    if(u->type=='k')
+        stat[10]->setHtml(QString("<div style='color:#DDDDDD'>You got a key</div>"));
+    if(u->type=='g')
+        stat[10]->setHtml(QString("<div style='color:#DDDDDD'>You got a gem</div>"));
+    if(u->type=='p')
+        stat[10]->setHtml(QString("<div style='color:#DDDDDD'>You got a potion</div>"));
+    if(u->type=='d')
+        stat[10]->setHtml(QString("<div style='color:#DDDDDD'>You opened a door</div>"));
+    if(u->type=='m')
+        stat[10]->setHtml(QString("<div style='color:#DDDDDD'>You got "+QString::number(u->gold)+"  gold, "+QString::number(u->exp)+"  exp"+"</div>"));
+    if(u->type=='e')
+        stat[10]->setHtml(QString("<div style='color:#DDDDDD'> </div>"));
 }
 
 void background::setbattle(QGraphicsScene *s)
 {
-    s->addItem(bg[1]);
+    s->addItem(base[1]);
     for(int i=0;i<=3;i++) s->addItem(panel[i]);
-    for(int i=0;i<=9;i++) s->addItem(stat[i]);
+    for(int i=0;i<=10;i++) s->addItem(stat[i]);
     for(int i=0;i<=15;i++){ for(int j=0;j<=15;j++)s->addItem(floor_disp[i][j]);}
     for(int i=0;i<=15;i++){ for(int j=0;j<=15;j++)s->addItem(map_disp[i][j]);}
 }
 void background::setfloor(int floor)
 {
-    floor--;
     cur_level=floor;
     for(int i=0;i<=15;i++)
     {
@@ -53,7 +64,6 @@ void background::setfloor(int floor)
             if(level[floor][i][j]=='.') floor_disp[i][j]->setPixmap(QPixmap(":/res/map/path.png").scaled(48,48));
             if(level[floor][i][j]=='u') floor_disp[i][j]->setPixmap(QPixmap(":/res/map/upstair.png").scaled(48,48));
             if(level[floor][i][j]=='d') floor_disp[i][j]->setPixmap(QPixmap(":/res/map/downstair.png").scaled(48,48));
-            map_disp[i][j]->setPixmap(map[floor][i][j]->pixmap().scaled(48,48));
         }
     }
     stat[9]->setHtml(QString("<div style='color:#DDDDDD'>")+QString::number(floor+1)+QString("</div>"));
@@ -68,6 +78,8 @@ void background::connection()
             connect(t,SIGNAL(timeout()),map[cur_level][i][j],SLOT(loop()));
         }
     }
+    cerr<<prev_level;
+    cerr<<cur_level;
 }
 
 background::background()
@@ -76,7 +88,6 @@ background::background()
     t=new QTimer;
     t->start(100);
     //init level display
-
     for(int i=0;i<=15;i++)
     {
         for(int j=0;j<=15;j++)
@@ -94,9 +105,9 @@ background::background()
 
     for(int i=0;i<=1;i++)
     {
-        bg[i]=new QGraphicsPixmapItem;
-        bg[i]->setPixmap(QPixmap(":/res/menu/background.png").scaled(1200,1000));
-        bg[i]->setPos(0,-500);
+        base[i]=new QGraphicsPixmapItem;
+        base[i]->setPixmap(QPixmap(":/res/menu/background.png").scaled(1200,1000));
+        base[i]->setPos(0,-500);
     }
     //init title screen
     title=new QGraphicsTextItem;
@@ -111,7 +122,7 @@ background::background()
     subtitle[1]->setPos(380,70);
     //init panel display
     for(int i=0;i<=3;i++) panel[i]=new QGraphicsPixmapItem;
-    for(int i=0;i<=9;i++)
+    for(int i=0;i<=10;i++)
     {
         stat[i]=new QGraphicsTextItem;
         if(i==0)
@@ -128,6 +139,11 @@ background::background()
         {
              stat[i]->setFont(QFont("Arial",18,10));
              stat[i]->setPos(80,-110+40*i+9+60);
+        }
+        else if(i==10)
+        {
+            stat[i]->setFont(QFont("Arial",30,10));
+            stat[i]->setPos(200,380);
         }
         else
         {

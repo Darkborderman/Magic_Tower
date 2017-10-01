@@ -13,6 +13,9 @@
 #include<QObject>
 #include<QTimer>
 #include<iostream>
+#include"blue_gem.h"
+#include"yellow_key.h"
+#include"yellow_door.h"
 using namespace std;
 
 class background: public QObject
@@ -20,7 +23,7 @@ class background: public QObject
     Q_OBJECT
 public:
     background();
-    void setbattle_disp(QGraphicsScene *s);
+    void setbattle_msg(unit *hero, unit *attacked);
     void setstart(QGraphicsScene *s);
     void setbattle(QGraphicsScene *s);
     void setfloor(int floor);
@@ -33,8 +36,8 @@ public:
     QTimer *t;
     QGraphicsPixmapItem *floor_disp[16][16];
     unit *map_disp[16][16];
-    QGraphicsPixmapItem *bg[2],*panel[4];
-    QGraphicsTextItem *stat[10],*title,*subtitle[2];
+    QGraphicsPixmapItem *base[2],*panel[4];
+    QGraphicsTextItem *stat[11],*title,*subtitle[2];
 
     //Wall display
     char level[3][16][16]=
@@ -62,13 +65,13 @@ public:
         {'X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X'},
         {'X','X','X','X','X','X','X','X','X','X','X','X','X','X','X','X'},
         {'X','X','X','X','d','X','X','X','X','X','X','X','X','X','X','X'},
-        {'X','X','.','X','X','X','X','X','X','X','X','X','X','X','X','X'},
+        {'X','X','.','.','.','X','X','X','X','X','X','X','X','X','X','X'},
         {'X','X','.','X','X','X','X','X','X','X','X','X','X','X','X','X'},
         {'X','.','.','X','X','X','X','X','X','X','X','X','X','X','X','X'},
         {'X','.','X','X','X','X','X','X','X','X','X','X','X','X','X','X'},
         {'X','.','.','X','X','X','X','X','X','X','X','X','X','X','X','X'},
         {'X','.','X','X','X','X','X','X','X','X','X','X','X','X','X','X'},
-        {'X','.','.','X','X','X','d','X','X','X','X','X','X','X','X','X'},
+        {'X','.','.','.','.','.','d','X','X','X','X','X','X','X','X','X'},
         {'X','.','X','X','X','X','X','X','X','X','X','X','X','X','X','X'},
         {'X','.','.','X','X','X','X','X','X','X','X','X','X','X','X','X'},
         {'X','.','X','X','X','X','X','X','X','X','X','X','X','X','X','X'},
@@ -97,6 +100,9 @@ public:
     empty *ep=new empty;
     green_slime *gs=new green_slime;
     large_potion *lp=new large_potion;
+    blue_gem *bg=new blue_gem;
+    yellow_key *yk=new yellow_key;
+    yellow_door *yd=new yellow_door;
 
     //Monster Display
     unit *map[3][16][16]=
@@ -113,8 +119,8 @@ public:
         {ep,gs,gs,gs,gs,gs,gs,gs,gs,gs,gs,ep,ep,ep,ep,ep},
         {ep,gs,ep,ep,ep,ep,ep,ep,ep,ep,gs,ep,ep,ep,ep,ep},
         {ep,gs,gs,gs,gs,gs,ep,ep,ep,ep,ep,ep,ep,gs,ep,ep},
-        {ep,gs,gs,gs,gs,gs,ep,ep,ep,ep,ep,ep,ep,gs,gs,ep},
-        {ep,gs,gs,gs,gs,ep,ep,gs,ep,gs,ep,gs,gs,gs,gs,ep},
+        {ep,gs,gs,gs,gs,gs,ep,ep,yd,ep,ep,ep,ep,gs,gs,ep},
+        {ep,gs,gs,gs,gs,ep,ep,yk,ep,bg,ep,gs,gs,gs,gs,ep},
         {ep,gs,gs,gs,gs,ep,ep,ep,ep,lp,ep,gs,gs,gs,gs,ep},
         {ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep},
     },

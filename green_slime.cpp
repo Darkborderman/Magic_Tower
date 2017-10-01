@@ -1,6 +1,6 @@
 #include "green_slime.h"
 
-green_slime::green_slime():unit('m',0,50,15,5,10,10)
+green_slime::green_slime():unit('m',0,50,15,5,3,1)
 {
     setPixmap(QPixmap(":/res/unit/green slime_1.png").scaled(48,48));
 }

@@ -8,7 +8,7 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
     ui->graphicsView->setScene(s[1]);
     bg->setbattle(s[0]);
     bg->setstart(s[1]);
-    bg->setfloor(1);
+    bg->setfloor(cur_level);
     bg->setstat(hero);
     hero->x=14;
     hero->y=7;
@@ -64,15 +64,68 @@ int MainWindow::detectwall(int x,int y)  //use return int to judge upfloor downf
     if(bg->level[cur_level][x][y]=='.'||bg->level[cur_level][x][y]=='u'||bg->level[cur_level][x][y]=='d')
     {
         detectmap(x,y);
+        if(bg->level[cur_level][x][y]=='u')
+        {
+            bg->map[cur_level][hero->x][hero->y]=bg->ep;
+            prev_level=cur_level;
+            ++cur_level;
+            bg->prev_level=prev_level;
+            bg->cur_level=cur_level;
+            bg->connection();
+            bg->setfloor(cur_level);
+        }
+        else if(bg->level[cur_level][x][y]=='d')
+        {
+            bg->map[cur_level][hero->x][hero->y]=bg->ep;
+            prev_level=cur_level;
+            --cur_level;
+            bg->prev_level=prev_level;
+            bg->cur_level=cur_level;
+            bg->setfloor(cur_level);
+            bg->connection();
+        }
+        if(bg->map[cur_level][x][y]->type=='d')
+        {
+            if(bg->map[cur_level][x][y]->kind==1&&hero->yellowkey>=1)
+            {
+                hero->yellowkey--;
+                bg->setmessage(bg->map[cur_level][x][y]);
+                bg->map[cur_level][x][y]=bg->ep;
+                return 0;
+            }
+            else return 0;
+        }
         return 1;
     }
     else return 0;
 }
 void MainWindow::detectmap(int x, int y)
 {
+
     if(bg->map[cur_level][x][y]->type=='p')
     {
+        bg->setmessage(bg->map[cur_level][x][y]);
         if(bg->map[cur_level][x][y]->kind==1) hero->hp+=200;
         if(bg->map[cur_level][x][y]->kind==2) hero->hp+=500;
+    }
+    if(bg->map[cur_level][x][y]->type=='g')
+    {
+        bg->setmessage(bg->map[cur_level][x][y]);
+        if(bg->map[cur_level][x][y]->kind==1) hero->atk+=3;
+        if(bg->map[cur_level][x][y]->kind==2) hero->def+=3;
+    }
+    if(bg->map[cur_level][x][y]->type=='k')
+    {
+        bg->setmessage(bg->map[cur_level][x][y]);
+        if(bg->map[cur_level][x][y]->kind==1) hero->yellowkey+=1;
+        if(bg->map[cur_level][x][y]->kind==2) hero->bluekey+=1;
+        if(bg->map[cur_level][x][y]->kind==3) hero->redkey+=1;
+    }
+    if(bg->map[cur_level][x][y]->type=='m')
+    {
+        bg->setmessage(bg->map[cur_level][x][y]);
+        bg->setbattle_msg(hero,bg->map[cur_level][x][y]);
+        hero->gold+=bg->map[cur_level][x][y]->gold;
+        hero->exp+=bg->map[cur_level][x][y]->exp;
     }
 }
