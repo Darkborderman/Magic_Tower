@@ -75,6 +75,13 @@ void background::connection()
         for(int j=0;j<=15;j++)
         {
             disconnect(t,SIGNAL(timeout()),map[prev_level][i][j],SLOT(loop()));
+//            connect(t,SIGNAL(timeout()),map[cur_level][i][j],SLOT(loop()));
+        }
+    }
+    for(int i=0;i<=15;i++)
+    {
+        for(int j=0;j<=15;j++)
+        {
             connect(t,SIGNAL(timeout()),map[cur_level][i][j],SLOT(loop()));
         }
     }
