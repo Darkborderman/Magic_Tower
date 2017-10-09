@@ -5,17 +5,33 @@
 #include<QGraphicsTextItem>
 #include<QGraphicsScene>
 #include<QGraphicsTextItem>
-#include"player.h"
-#include"empty.h"
-#include"green_slime.h"
-#include"unit.h"
-#include"large_potion.h"
 #include<QObject>
 #include<QTimer>
 #include<iostream>
-#include"blue_gem.h"
-#include"yellow_key.h"
-#include"yellow_door.h"
+#include"player.h"
+#include"empty.h"
+#include"unit.h"
+
+//Potion and Gem
+#include"potion_blue.h"
+#include"potion_red.h"
+#include"gem_blue.h"
+#include"gem_red.h"
+
+//Key and Door
+#include"key_blue.h"
+#include"key_red.h"
+#include"key_yellow.h"
+#include"door_yellow.h"
+#include"door_blue.h"
+#include"door_red.h"
+
+//Monster
+#include"slime_blue.h"
+#include"slime_green.h"
+
+
+
 using namespace std;
 
 class background: public QObject
@@ -96,70 +112,80 @@ public:
         {'.','.','X','X','X','X','X','X','X','X','X','X','X','X','X','.'},
         {'.','X','X','X','X','X','X','X','X','X','X','X','X','X','X','.'}
     }};
-    //Monster List
+    //Item list
     player *he=new player;
-    empty *ep=new empty;
-    green_slime *gs=new green_slime;
-    large_potion *lp=new large_potion;
-    blue_gem *bg=new blue_gem;
-    yellow_key *yk=new yellow_key;
-    yellow_door *yd=new yellow_door;
+    empty *empt=new empty;
+
+    potion_blue *po_b=new potion_blue;
+    potion_red *po_r=new potion_red;
+    gem_blue *ge_b=new gem_blue;
+    gem_red *ge_r=new gem_red;
+
+    key_blue *ke_b=new key_blue;
+    key_red *ke_r=new key_red;
+    key_yellow *ke_y=new key_yellow;
+    door_blue *do_b=new door_blue;
+    door_red *do_r=new door_red;
+    door_yellow *do_y=new door_yellow;
+
+    slime_blue *sl_b=new slime_blue;
+    slime_green *sl_g=new slime_green;
 
     //Monster Display
     unit *map[3][16][16]=
     {{
-        {ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep},
-        {ep,ep,gs,gs,gs,gs,gs,gs,gs,gs,gs,gs,gs,gs,gs,ep},
-        {ep,ep,gs,ep,ep,gs,gs,gs,gs,gs,gs,ep,gs,ep,gs,ep},
-        {ep,ep,gs,ep,ep,ep,ep,ep,ep,ep,ep,ep,gs,ep,gs,ep},
-        {ep,ep,gs,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,gs,ep},
-        {ep,ep,gs,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep},
-        {ep,ep,gs,ep,gs,gs,ep,gs,gs,gs,gs,ep,ep,gs,gs,ep},
-        {ep,ep,gs,ep,gs,gs,ep,gs,gs,gs,gs,ep,ep,ep,ep,ep},
-        {ep,ep,gs,ep,gs,ep,ep,gs,gs,gs,gs,ep,ep,ep,ep,ep},
-        {ep,gs,gs,gs,gs,gs,gs,gs,gs,gs,gs,ep,ep,ep,ep,ep},
-        {ep,gs,ep,ep,ep,ep,ep,ep,ep,ep,gs,ep,ep,ep,ep,ep},
-        {ep,gs,gs,gs,gs,gs,ep,ep,ep,ep,ep,ep,ep,gs,ep,ep},
-        {ep,gs,gs,gs,gs,gs,ep,ep,yd,ep,ep,ep,ep,gs,gs,ep},
-        {ep,gs,gs,gs,gs,ep,ep,yk,ep,bg,ep,gs,gs,gs,gs,ep},
-        {ep,gs,gs,gs,gs,ep,ep,ep,ep,lp,ep,gs,gs,gs,gs,ep},
-        {ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep},
+        {empt,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt},
+        {empt,empt,sl_g,sl_g,sl_g,sl_g,sl_g,sl_g,sl_g,sl_g,sl_g,sl_g,sl_g,sl_g,sl_g,empt},
+        {empt,empt,sl_g,empt,empt,sl_g,sl_g,sl_g,sl_g,sl_g,sl_g,empt,sl_g,empt,sl_g,empt},
+        {empt,empt,sl_g,empt,empt,empt,empt,empt,empt,empt,empt,empt,sl_g,empt,sl_g,empt},
+        {empt,empt,sl_g,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt,sl_g,empt},
+        {empt,empt,sl_g,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt},
+        {empt,empt,sl_g,empt,sl_g,sl_g,empt,sl_g,sl_g,sl_g,sl_g,empt,empt,sl_g,sl_g,empt},
+        {empt,empt,sl_g,empt,sl_g,sl_g,empt,sl_g,sl_g,sl_g,sl_g,empt,empt,empt,empt,empt},
+        {empt,empt,sl_g,empt,sl_g,empt,empt,sl_g,sl_g,sl_g,sl_g,empt,empt,empt,empt,empt},
+        {empt,sl_g,sl_g,sl_g,sl_g,sl_g,sl_g,sl_g,sl_g,sl_g,sl_g,empt,empt,empt,empt,empt},
+        {empt,sl_g,empt,empt,empt,empt,empt,empt,empt,empt,sl_g,empt,empt,empt,empt,empt},
+        {empt,sl_g,sl_g,sl_g,sl_g,sl_g,empt,empt,empt,empt,empt,empt,empt,sl_g,empt,empt},
+        {empt,sl_g,sl_g,sl_g,sl_g,sl_g,empt,empt,do_r,empt,empt,empt,empt,sl_g,sl_g,empt},
+        {empt,sl_g,sl_g,sl_g,sl_g,empt,empt,ke_r,empt,ge_r,empt,sl_g,sl_g,sl_g,sl_g,empt},
+        {empt,sl_g,sl_g,sl_g,sl_g,empt,empt,empt,empt,po_r,empt,sl_g,sl_g,sl_g,sl_g,empt},
+        {empt,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt},
     },
     {
-        {ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep},
-        {ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep},
-        {ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep},
-        {ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep},
-        {ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep},
-        {ep,ep,gs,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep},
-        {ep,ep,gs,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep},
-        {ep,gs,gs,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep},
-        {ep,gs,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep},
-        {ep,gs,gs,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep},
-        {ep,gs,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep},
-        {ep,gs,gs,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep},
-        {ep,gs,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep},
-        {ep,gs,gs,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep},
-        {ep,gs,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep},
-        {ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep},
+        {empt,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt},
+        {empt,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt},
+        {empt,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt},
+        {empt,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt},
+        {empt,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt},
+        {empt,empt,sl_g,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt},
+        {empt,empt,sl_g,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt},
+        {empt,sl_g,sl_g,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt},
+        {empt,sl_g,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt},
+        {empt,sl_g,sl_g,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt},
+        {empt,sl_g,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt},
+        {empt,sl_g,sl_g,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt},
+        {empt,sl_g,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt},
+        {empt,sl_g,sl_g,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt},
+        {empt,sl_g,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt},
+        {empt,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt},
     },
     {
-         {ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep},
-         {ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep},
-         {ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep},
-         {ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep},
-         {ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep},
-         {ep,ep,gs,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep},
-         {ep,ep,gs,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep},
-         {ep,gs,gs,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep},
-         {gs,gs,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep},
-         {ep,gs,gs,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep},
-         {gs,gs,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,gs},
-         {ep,gs,gs,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,gs},
-         {gs,gs,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,gs},
-         {ep,gs,gs,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,gs},
-         {gs,gs,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,gs},
-         {gs,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,ep,gs}
+        {empt,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt},
+        {empt,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt},
+        {empt,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt},
+        {empt,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt},
+        {empt,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt},
+        {empt,empt,sl_g,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt},
+        {empt,empt,sl_g,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt},
+        {empt,sl_g,sl_g,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt},
+        {sl_g,sl_g,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt},
+        {empt,sl_g,sl_g,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt},
+        {sl_g,sl_g,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt,sl_g},
+        {empt,sl_g,sl_g,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt,sl_g},
+        {sl_g,sl_g,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt,sl_g},
+        {empt,sl_g,sl_g,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt,sl_g},
+        {sl_g,sl_g,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt,sl_g},
+        {sl_g,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt,sl_g}
     }};
 
 

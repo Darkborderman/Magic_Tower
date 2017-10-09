@@ -1,10 +1,10 @@
-#include "green_slime.h"
+#include "slime_green.h"
 
-green_slime::green_slime():unit('m',0,50,15,5,3,1)
+slime_green::slime_green():unit('m',0,50,15,5,3,1)
 {
     setPixmap(QPixmap(":/res/unit/green slime_1.png").scaled(48,48));
 }
-void green_slime::loop()
+void slime_green::loop()
 {
     tick++;
     if(tick%4<=1)setPixmap(QPixmap(":/res/unit/green slime_1.png").scaled(48,48));

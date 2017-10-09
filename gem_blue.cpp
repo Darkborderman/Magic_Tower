@@ -1,6 +1,6 @@
-#include "blue_gem.h"
+#include "gem_blue.h"
 
-blue_gem::blue_gem():unit('g',2,0,0,0,0,0)
+gem_blue::gem_blue():unit('g',2,0,0,0,0,0)
 {
     setPixmap(QPixmap(":/res/item/blue gem.png").scaled(48,48));
 }

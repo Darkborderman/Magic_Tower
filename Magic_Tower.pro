@@ -29,24 +29,36 @@ SOURCES += main.cpp\
     unit.cpp \
     player.cpp \
     empty.cpp \
-    green_slime.cpp \
-    blue_slime.cpp \
-    large_potion.cpp \
-    blue_gem.cpp \
-    yellow_key.cpp \
-    yellow_door.cpp
+    slime_green.cpp \
+    slime_blue.cpp \
+    key_yellow.cpp \
+    key_blue.cpp \
+    key_red.cpp \
+    door_yellow.cpp \
+    door_blue.cpp \
+    door_red.cpp \
+    gem_blue.cpp \
+    gem_red.cpp \
+    potion_blue.cpp \
+    potion_red.cpp
 
 HEADERS  += mainwindow.h \
     background.h \
     unit.h \
     player.h \
     empty.h \
-    green_slime.h \
-    blue_slime.h \
-    large_potion.h \
-    blue_gem.h \
-    yellow_key.h \
-    yellow_door.h
+    slime_green.h \
+    slime_blue.h \
+    key_yellow.h \
+    key_blue.h \
+    key_red.h \
+    door_yellow.h \
+    door_blue.h \
+    door_red.h \
+    gem_blue.h \
+    gem_red.h \
+    potion_blue.h \
+    potion_red.h
 
 FORMS    += mainwindow.ui
 

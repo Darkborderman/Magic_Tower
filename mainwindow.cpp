@@ -25,25 +25,25 @@ void MainWindow::keyPressEvent(QKeyEvent *e)
     //control
     if(e->key()==Qt::Key_W&&detectwall((hero->x)-1,hero->y))
     {
-        bg->map[cur_level][hero->x][hero->y]=bg->ep;
+        bg->map[cur_level][hero->x][hero->y]=bg->empt;
         hero->x-=1;
         hero->kind=1;
     }
     if(e->key()==Qt::Key_A&&detectwall(hero->x,(hero->y)-1))
     {
-        bg->map[cur_level][hero->x][hero->y]=bg->ep;
+        bg->map[cur_level][hero->x][hero->y]=bg->empt;
         hero->y-=1;
         hero->kind=2;
     }
     if(e->key()==Qt::Key_S&&detectwall((hero->x)+1,hero->y))
     {
-        bg->map[cur_level][hero->x][hero->y]=bg->ep;
+        bg->map[cur_level][hero->x][hero->y]=bg->empt;
         hero->x+=1;
         hero->kind=3;
     }
     if(e->key()==Qt::Key_D&&detectwall(hero->x,(hero->y)+1))
     {
-        bg->map[cur_level][hero->x][hero->y]=bg->ep;
+        bg->map[cur_level][hero->x][hero->y]=bg->empt;
         hero->y+=1;
         hero->kind=4;
     }
@@ -67,7 +67,7 @@ int MainWindow::detectwall(int x,int y)  //use return int to judge upfloor downf
         detectmap(x,y);
         if(bg->level[cur_level][x][y]=='u')
         {
-            bg->map[cur_level][hero->x][hero->y]=bg->ep;
+            bg->map[cur_level][hero->x][hero->y]=bg->empt;
             prev_level=cur_level;
             ++cur_level;
             bg->prev_level=prev_level;
@@ -77,7 +77,7 @@ int MainWindow::detectwall(int x,int y)  //use return int to judge upfloor downf
         }
         else if(bg->level[cur_level][x][y]=='d')
         {
-            bg->map[cur_level][hero->x][hero->y]=bg->ep;
+            bg->map[cur_level][hero->x][hero->y]=bg->empt;
             prev_level=cur_level;
             --cur_level;
             bg->prev_level=prev_level;
@@ -91,7 +91,21 @@ int MainWindow::detectwall(int x,int y)  //use return int to judge upfloor downf
             {
                 hero->yellowkey--;
                 bg->setmessage(bg->map[cur_level][x][y]);
-                bg->map[cur_level][x][y]=bg->ep;
+                bg->map[cur_level][x][y]=bg->empt;
+                return 0;
+            }
+            else if(bg->map[cur_level][x][y]->kind==2&&hero->bluekey>=1)
+            {
+                hero->bluekey--;
+                bg->setmessage(bg->map[cur_level][x][y]);
+                bg->map[cur_level][x][y]=bg->empt;
+                return 0;
+            }
+            else if(bg->map[cur_level][x][y]->kind==3&&hero->redkey>=1)
+            {
+                hero->redkey--;
+                bg->setmessage(bg->map[cur_level][x][y]);
+                bg->map[cur_level][x][y]=bg->empt;
                 return 0;
             }
             else return 0;
