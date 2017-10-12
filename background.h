@@ -29,6 +29,8 @@
 //Monster
 #include"slime_blue.h"
 #include"slime_green.h"
+#include"slime_red.h"
+
 
 
 

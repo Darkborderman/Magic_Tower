@@ -40,7 +40,8 @@ SOURCES += main.cpp\
     gem_blue.cpp \
     gem_red.cpp \
     potion_blue.cpp \
-    potion_red.cpp
+    potion_red.cpp \
+    slime_red.cpp
 
 HEADERS  += mainwindow.h \
     background.h \
@@ -58,7 +59,8 @@ HEADERS  += mainwindow.h \
     gem_blue.h \
     gem_red.h \
     potion_blue.h \
-    potion_red.h
+    potion_red.h \
+    slime_red.h
 
 FORMS    += mainwindow.ui
 
