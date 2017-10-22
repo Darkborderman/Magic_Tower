@@ -108,6 +108,15 @@ int MainWindow::detectwall(int x,int y)  //use return int to judge upfloor downf
                 bg->map[cur_level][x][y]=bg->empt;
                 return 0;
             }
+            else if(bg->map[cur_level][x][y]->kind==4&&hero->redkey>=1&&hero->bluekey>=1&&hero->yellowkey>=1)
+            {
+                hero->redkey--;
+                hero->bluekey--;
+                hero->yellowkey--;
+                bg->setmessage(bg->map[cur_level][x][y]);
+                bg->map[cur_level][x][y]=bg->empt;
+                return 0;
+            }
             else return 0;
         }
         return 1;
@@ -135,6 +144,12 @@ void MainWindow::detectmap(int x, int y)
         if(bg->map[cur_level][x][y]->kind==1) hero->yellowkey+=1;
         if(bg->map[cur_level][x][y]->kind==2) hero->bluekey+=1;
         if(bg->map[cur_level][x][y]->kind==3) hero->redkey+=1;
+        if(bg->map[cur_level][x][y]->kind==4)
+        {
+            hero->yellowkey+=1;
+            hero->bluekey+=1;
+            hero->redkey+=1;
+        }
     }
     if(bg->map[cur_level][x][y]->type=='m')
     {

@@ -21,8 +21,10 @@
 //Key and Door
 #include"key_blue.h"
 #include"key_red.h"
+#include"key_godly.h"
 #include"key_yellow.h"
 #include"door_yellow.h"
+#include"door_godly.h"
 #include"door_blue.h"
 #include"door_red.h"
 
@@ -126,7 +128,9 @@ public:
     key_blue *ke_b=new key_blue;
     key_red *ke_r=new key_red;
     key_yellow *ke_y=new key_yellow;
+    key_godly *ke_g=new key_godly;
     door_blue *do_b=new door_blue;
+    door_godly *do_g=new door_godly;
     door_red *do_r=new door_red;
     door_yellow *do_y=new door_yellow;
 
@@ -148,8 +152,8 @@ public:
         {empt,sl_g,sl_g,sl_g,sl_g,sl_g,sl_g,sl_g,sl_g,sl_g,sl_g,empt,empt,empt,empt,empt},
         {empt,sl_g,empt,empt,empt,empt,empt,empt,empt,empt,sl_g,empt,empt,empt,empt,empt},
         {empt,sl_g,sl_g,sl_g,sl_g,sl_g,empt,empt,empt,empt,empt,empt,empt,sl_g,empt,empt},
-        {empt,sl_g,sl_g,sl_g,sl_g,sl_g,empt,empt,do_r,empt,empt,empt,empt,sl_g,sl_g,empt},
-        {empt,sl_g,sl_g,sl_g,sl_g,empt,empt,ke_r,empt,ge_r,empt,sl_g,sl_g,sl_g,sl_g,empt},
+        {empt,sl_g,sl_g,sl_g,sl_g,sl_g,empt,empt,do_g,empt,empt,empt,empt,sl_g,sl_g,empt},
+        {empt,sl_g,sl_g,sl_g,sl_g,empt,empt,ke_g,empt,ge_r,empt,sl_g,sl_g,sl_g,sl_g,empt},
         {empt,sl_g,sl_g,sl_g,sl_g,empt,empt,empt,empt,po_r,empt,sl_g,sl_g,sl_g,sl_g,empt},
         {empt,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt,empt},
     },
