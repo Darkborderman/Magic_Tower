@@ -5,7 +5,7 @@
 #-------------------------------------------------
 
 QT       += core gui
-
+QT += core gui multimedia
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 TARGET = Magic_Tower
@@ -43,7 +43,8 @@ SOURCES += main.cpp\
     potion_red.cpp \
     slime_red.cpp \
     key_godly.cpp \
-    door_godly.cpp
+    door_godly.cpp \
+    backgroundmusic.cpp
 
 HEADERS  += mainwindow.h \
     background.h \
@@ -64,7 +65,8 @@ HEADERS  += mainwindow.h \
     potion_red.h \
     slime_red.h \
     key_godly.h \
-    door_godly.h
+    door_godly.h \
+    backgroundmusic.h
 
 FORMS    += mainwindow.ui
 

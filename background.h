@@ -12,6 +12,9 @@
 #include"empty.h"
 #include"unit.h"
 
+//BGM
+#include"backgroundmusic.h"
+
 //Potion and Gem
 #include"potion_blue.h"
 #include"potion_red.h"
@@ -52,6 +55,7 @@ public:
     void setmessage(unit *u);
     void setdeath(QGraphicsScene *s);
 
+    backgroundmusic *bgm=new backgroundmusic;
     int cur_level=0;
     int prev_level=0;
     QTimer *t;
