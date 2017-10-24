@@ -44,7 +44,8 @@ SOURCES += main.cpp\
     slime_red.cpp \
     key_godly.cpp \
     door_godly.cpp \
-    backgroundmusic.cpp
+    backgroundmusic.cpp \
+    slime_black.cpp
 
 HEADERS  += mainwindow.h \
     background.h \
@@ -66,7 +67,8 @@ HEADERS  += mainwindow.h \
     slime_red.h \
     key_godly.h \
     door_godly.h \
-    backgroundmusic.h
+    backgroundmusic.h \
+    slime_black.h
 
 FORMS    += mainwindow.ui
 

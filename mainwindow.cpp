@@ -92,6 +92,7 @@ int MainWindow::detectwall(int x,int y)  //use return int to judge upfloor downf
                 hero->yellowkey--;
                 bg->setmessage(bg->map[cur_level][x][y]);
                 bg->map[cur_level][x][y]=bg->empt;
+                bg->bgm->opendoor();
                 return 0;
             }
             else if(bg->map[cur_level][x][y]->kind==2&&hero->bluekey>=1)
@@ -99,6 +100,7 @@ int MainWindow::detectwall(int x,int y)  //use return int to judge upfloor downf
                 hero->bluekey--;
                 bg->setmessage(bg->map[cur_level][x][y]);
                 bg->map[cur_level][x][y]=bg->empt;
+                bg->bgm->opendoor();
                 return 0;
             }
             else if(bg->map[cur_level][x][y]->kind==3&&hero->redkey>=1)
@@ -106,6 +108,7 @@ int MainWindow::detectwall(int x,int y)  //use return int to judge upfloor downf
                 hero->redkey--;
                 bg->setmessage(bg->map[cur_level][x][y]);
                 bg->map[cur_level][x][y]=bg->empt;
+                bg->bgm->opendoor();
                 return 0;
             }
             else if(bg->map[cur_level][x][y]->kind==4&&hero->redkey>=1&&hero->bluekey>=1&&hero->yellowkey>=1)
@@ -115,6 +118,7 @@ int MainWindow::detectwall(int x,int y)  //use return int to judge upfloor downf
                 hero->yellowkey--;
                 bg->setmessage(bg->map[cur_level][x][y]);
                 bg->map[cur_level][x][y]=bg->empt;
+                bg->bgm->opendoor();
                 return 0;
             }
             else return 0;
@@ -131,12 +135,14 @@ void MainWindow::detectmap(int x, int y)
         bg->setmessage(bg->map[cur_level][x][y]);
         if(bg->map[cur_level][x][y]->kind==1) hero->hp+=200;
         if(bg->map[cur_level][x][y]->kind==2) hero->hp+=500;
+        bg->bgm->pickup();
     }
     if(bg->map[cur_level][x][y]->type=='g')
     {
         bg->setmessage(bg->map[cur_level][x][y]);
         if(bg->map[cur_level][x][y]->kind==1) hero->atk+=3;
         if(bg->map[cur_level][x][y]->kind==2) hero->def+=3;
+        bg->bgm->pickup();
     }
     if(bg->map[cur_level][x][y]->type=='k')
     {
@@ -150,6 +156,7 @@ void MainWindow::detectmap(int x, int y)
             hero->bluekey+=1;
             hero->redkey+=1;
         }
+        bg->bgm->pickup();
     }
     if(bg->map[cur_level][x][y]->type=='m')
     {
